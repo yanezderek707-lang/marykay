@@ -1,0 +1,864 @@
+/* Colores y Estilos del Navbar Principal */
+.custom-navbar {
+    /* Color de fondo: Rosa Fuerte */
+    background-color: #D63384 !important; /* Usamos !important para asegurar que sobrescriba a Bootstrap */
+}
+
+/* Estilo para la Marca/Logo del Navbar */
+.custom-navbar .navbar-brand {
+    /* Color del texto: Blanco */
+    color: #FFFFFF !important;
+    /* Fuente en negrita */
+    font-weight: bold;
+}
+
+/* Estilo para los Enlaces del Navbar */
+.custom-navbar .navbar-nav .nav-link {
+    /* Color del texto: Blanco */
+    color: #FFFFFF !important;
+    /* Transición suave para el efecto hover */
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    border-radius: 5px; /* Bordes redondeados para el hover */
+}
+
+/* Estilo al pasar el cursor (Hover) sobre los Enlaces */
+.custom-navbar .navbar-nav .nav-link:hover,
+.custom-navbar .navbar-nav .nav-link:focus {
+    /* Color de fondo: Rojo Oscuro/Vino */
+    background-color: #A00037; 
+    /* Color del texto: Blanco más brillante */
+    color: #FFF !important;
+}
+
+/* Estilo para el Enlace Activo */
+.custom-navbar .navbar-nav .nav-link.active {
+    /* Color de fondo: Rojo Oscuro/Vino */
+    background-color: #A00037;
+    /* Color del texto: Blanco */
+    color: #FFF !important;
+    /* Borde inferior para resaltar */
+    border-bottom: 3px solid #FFC0CB; /* Rosa claro para el detalle */
+}
+
+/* Estilo del Ícono del Toggler (Hamburguesa) para móviles */
+.custom-navbar .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5); /* Borde blanco semi-transparente */
+}
+
+/* Estilo del ícono (rayas) del Toggler para móviles */
+.custom-navbar .navbar-toggler-icon {
+    /* Usamos un filtro para cambiar el color del ícono (generalmente gris oscuro) a blanco */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+
+
+
+
+
+
+
+
+
+/* Contenedor del Slider */
+.slider-container {
+    width: 100%;
+    /* Altura que no sea "demasiado alta" (ajusta este valor) */
+    height: 400px; 
+    overflow: hidden; /* Oculta las imágenes que no están a la vista */
+    position: relative;
+}
+
+/* Wrapper de las Imágenes */
+.slider-wrapper {
+    /* El ancho total debe ser (Nº de Imágenes + 1 (para loop) ) * 100% del ancho del contenedor */
+    /* Para 5 imágenes + 1: 600% */
+    width: 600%; 
+    height: 100%;
+    display: flex;
+    position: absolute;
+    /* Aplicar la animación Keyframes */
+    animation: slide-movement 8s infinite linear; /* Duración: 30s, Repetir: infinito, Velocidad: constante */
+}
+
+/* Imágenes */
+.slider-wrapper img {
+    /* Cada imagen ocupa 1/6 del ancho del wrapper (100% / 6 = 16.666%) */
+    width: 16.666%; 
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsión, recortando si es necesario */
+}
+
+/* Keyframes de la Animación */
+@keyframes slide-movement {
+    /* 0% - Muestra la imagen 1 */
+    0% { transform: translateX(0); }
+    
+    /* 16.66% - Inicio de la transición a imagen 2 */
+    10% { transform: translateX(0); }
+    /* 16.66% - Muestra la imagen 2 */
+    20% { transform: translateX(-16.666%); }
+
+    /* 33.33% - Inicio de la transición a imagen 3 */
+    30% { transform: translateX(-16.666%); }
+    /* 40% - Muestra la imagen 3 */
+    40% { transform: translateX(-33.333%); }
+
+    /* 50% - Inicio de la transición a imagen 4 */
+    50% { transform: translateX(-33.333%); }
+    /* 60% - Muestra la imagen 4 */
+    60% { transform: translateX(-50%); }
+    
+    /* 70% - Inicio de la transición a imagen 5 */
+    70% { transform: translateX(-50%); }
+    /* 80% - Muestra la imagen 5 */
+    80% { transform: translateX(-66.666%); }
+
+    /* 90% - Inicio de la transición de vuelta (a la primera imagen repetida para el loop) */
+    90% { transform: translateX(-66.666%); }
+    /* 95% - Muestra la primera imagen repetida (que está en la posición 6) */
+    95% { transform: translateX(-83.333%); }
+
+    /* 100% - Vuelve instantáneamente a la posición de la primera imagen (0%) para el loop */
+    100% { transform: translateX(0); } 
+}
+
+/* Estilos para pausar la animación al pasar el ratón (opcional) */
+.slider-container:hover .slider-wrapper {
+    animation-play-state: paused;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.products-section {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fcfcfc;
+}
+
+.products-section h2 {
+    text-align: center;
+    color: #880e4f; /* Rosa oscuro/Morado de Mary Kay */
+    margin-bottom: 40px;
+}
+
+/* --- Cuadrícula de 20 Mosaicos (4 columnas) --- */
+.products-grid {
+    display: grid;
+    /* 5 columnas en escritorios grandes, 4 en medianos, ajustando la altura de la imagen */
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 20px;
+}
+
+/* --- Estilos Base del Mosaico --- */
+.product-tile {
+    /* Contenedor principal para el efecto de sombra */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    /* Transición para la animación de hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    cursor: pointer;
+}
+
+.product-image-container {
+    position: relative; /* Contexto para la información superpuesta */
+    overflow: hidden;
+}
+
+.product-image-container img {
+    width: 100%;
+    height: 220px; /* Altura uniforme para todos los mosaicos */
+    object-fit: cover;
+    display: block;
+    /* Transición para el efecto de zoom */
+    transition: transform 0.3s ease;
+}
+
+/* --- Información Superpuesta (Nombre y Precio) --- */
+.product-info-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /* Degradado oscuro para que el texto sea legible sobre cualquier imagen */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)); 
+    color: white;
+    padding: 30px 10px 10px;
+    text-align: center;
+}
+
+.overlay-name {
+    margin: 0 0 5px;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.overlay-price {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: 900;
+    color: #ffcdd2; /* Rosa muy claro para el precio */
+}
+
+/* --- ANIMACIÓN al Pasar el Cursor (HOVER) --- */
+.product-tile:hover {
+    /* 1. Sombra destacada */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+    /* 2. Ligeramente levantado */
+    transform: translateY(-5px); 
+}
+
+.product-tile:hover .product-image-container img {
+    /* 3. Efecto Zoom */
+    transform: scale(1.08); 
+}
+
+/* --- Responsividad --- */
+@media (max-width: 1200px) {
+    /* 4 columnas en escritorios más pequeños/laptops */
+    .products-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    /* 3 columnas en tabletas */
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    /* 2 columnas en móviles */
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .product-image-container img {
+        height: 180px; /* Altura más compacta para móviles */
+    }
+}
+
+@media (max-width: 400px) {
+    /* 1 columna en móviles muy pequeños */
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.promotions-section {
+    padding: 20px;
+    width: 60%;
+    margin: 0 auto; /* Centra la sección */
+}
+
+.promotions-section h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* --- Estilos de la Cuadrícula (Mosaicos) --- */
+.promotions-grid {
+    display: grid;
+    /* Crea 5 columnas de igual ancho (10 mosaicos en total) */
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 20px; /* Espacio entre los mosaicos */
+}
+
+/* --- Estilos de cada Mosaico --- */
+.promotion-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden; /* Asegura que la imagen no se salga */
+    text-align: center;
+    padding-bottom: 10px;
+    /* Importante: Establecer contexto para el posicionamiento absoluto del precio */
+    position: relative; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Contenedor de la Imagen y la Imagen --- */
+.product-image {
+    width: 100%;
+    height: 180px; /* Altura fija para uniformidad (ajusta si es necesario) */
+    overflow: hidden;
+    position: relative;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsión */
+    display: block;
+    transition: transform 0.3s ease; /* Efecto de transición para el hover */
+}
+
+.promotion-item:hover .product-image img {
+    transform: scale(1.05); /* Zoom sutil al pasar el ratón */
+}
+
+/* --- Etiqueta de Precio (Superpuesta) --- */
+.product-price-tag {
+    position: absolute; /* Posiciona respecto a .promotion-item */
+    top: 10px; 
+    right: 10px;
+    background-color: #e74c3c; /* Color de oferta llamativo */
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.2em;
+    z-index: 10; /* Asegura que esté sobre la imagen */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.large-price {
+    font-size: 1.4em; /* Estilo opcional para precios más grandes */
+    padding: 10px 15px;
+}
+
+/* --- Título del Producto --- */
+.product-title {
+    margin: 10px 0 5px;
+    font-size: 1em;
+    color: #555;
+    text-transform: uppercase;
+}
+
+
+/* --- Responsividad para dispositivos más pequeños --- */
+@media (max-width: 992px) {
+    /* En tabletas, 3 columnas */
+    .promotions-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    /* En móviles, 2 columnas */
+    .promotions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 400px) {
+    /* En móviles pequeños, 1 columna */
+    .promotions-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Contenedor visible */
+.slider-container2 {
+    position: relative;
+    overflow: hidden; /* **Oculta los productos que no se deben ver** */
+    width: 100%;
+}
+
+/* La pista/carril de los slides */
+.promotions-grid.slider-track {
+    display: flex;
+    flex-wrap: nowrap; /* Evita que los items salten de línea */
+    gap: 20px;
+    transition: transform 1s ease-in-out; /* Transición suave para el movimiento */
+}
+
+/* Cada producto (Slide) */
+.promotion-item.slide {
+    flex: 0 0 auto; /* Importante: no crecer ni encoger */
+    width: 250px; /* Define el ancho base de cada producto (Ajustar al gusto) */
+    text-align: center;
+}
+
+/* Media Query para pantallas grandes: mostrar más items */
+@media (min-width: 900px) {
+    .promotion-item.slide {
+        /* Muestra 4 productos a la vez (100% / 4) - espacio_entre_ellos */
+        width: calc(25% - 15px); 
+    }
+}
+
+/* ... Mantén tus estilos originales para product-image, product-price-tag, etc. ... */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.video-section {
+    max-width: 100%;
+    margin: 40px auto;
+    padding: 0 20px;
+    background-color: #fce4ec; 
+}
+
+.video-section h2 {
+    text-align: center;
+    color: #880e4f;
+    margin-bottom: 20px;
+}
+
+/* --- Contenedor del Carrusel (Desplazamiento Horizontal) --- */
+.video-carousel {
+    display: flex; 
+    /* Eliminar overflow-x: scroll para que no aparezca la barra de desplazamiento manual */
+    /* overflow-x: scroll;  <-- Deshabilitado para la animación automática */
+    overflow: hidden; /* Oculta los videos fuera de la vista */
+    padding: 10px 0;
+    gap: 20px; 
+    
+    /* ***** CÓDIGO NUEVO PARA EL DESPLAZAMIENTO AUTOMÁTICO ***** */
+    
+    /* Aplica la animación: 
+       - animation-name: scroll-carousel
+       - animation-duration: 40s (Lenta, ajusta este valor para más o menos velocidad)
+       - animation-timing-function: linear (Velocidad constante)
+       - animation-iteration-count: infinite (Loop continuo)
+    */
+    animation: scroll-carousel 20s linear infinite; 
+}
+
+/* --- Estilo de cada Tarjeta de Video --- */
+.video-card {
+    flex-shrink: 0; 
+    width: 280px; 
+    text-decoration: none;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    color: #333;
+    
+    /* Configuración para la animación de hover */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    transform-origin: center center; 
+}
+
+.video-card img {
+    width: 100%;
+    height: 180px;
+    display: block;
+    object-fit: cover;
+}
+
+.video-card p {
+    padding: 10px;
+    margin: 0;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* --- Animación al Acercar el Cursor (Hover) --- */
+.video-card:hover {
+    transform: scale(1.08) translateY(-5px); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
+    background-color: #ffebee; 
+    z-index: 10; 
+}
+
+/* ***** REGLA ADICIONAL: Pausar la animación al hacer hover sobre la cinta ***** */
+.video-carousel:hover {
+    animation-play-state: paused;
+}
+
+
+/* ***** KEYFRAMES PARA EL DESPLAZAMIENTO LENTO Y CONTINUO ***** */
+
+@keyframes scroll-carousel {
+    /* 0% - Posición inicial (primer video visible) */
+    0% {
+        transform: translateX(0);
+    }
+    
+    /* 100% - Mover el carrusel a la izquierda. 
+       Cálculo del desplazamiento: (Número de videos - 4) * Ancho de Tarjeta
+       Como son 8 tarjetas de 280px + 20px de gap, calcularemos el % de desplazamiento.
+       (8 videos * 300px de ancho/gap) - Ancho del contenedor.
+       
+       Para un loop visual simple:
+       Mover el 50% de las tarjetas para que la última tarjeta sea el inicio del movimiento.
+       Desplazamiento total para mostrar todos los videos (8 videos): (8 * 300px) - (4 * 300px) = 1200px
+       Usaremos un valor de píxeles o porcentaje que mueva el contenido fuera de la vista para crear el loop.
+       
+       Mover (8 - X videos visibles) posiciones:
+       Mover 4 tarjetas (4 * 300px = 1200px) si el ancho es constante. 
+    */
+    
+    /* Usaremos un valor que funcione bien para 8 elementos, moviendo lo suficiente para que el usuario 
+       vea la mayor parte de la cinta sin un "salto" al final. */
+    100% {
+        /* Mueve el carrusel a la izquierda lo suficiente para que el último video sea visible y el primero salga */
+        transform: translateX(calc(-100% - 20px)); 
+    }
+}
+
+
+/* --- Responsividad: Ajustar el ancho de las tarjetas en móviles --- */
+@media (max-width: 600px) {
+    .video-card {
+        width: 200px; 
+    }
+    /* El valor de translateX debe ser ajustado si se usa calc o píxeles, 
+       pero el % usado arriba se adapta mejor a diferentes anchos. */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.site-footer {
+    background-color: #fce4ec; /* Rosa muy claro, casi blanco */
+    color: #4a148c; /* Morado/rosa oscuro para el texto, buena legibilidad */
+    padding: 40px 20px 20px;
+    border-top: 3px solid #f8bbd0; /* Borde superior rosa suave */
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap; /* Permite que las columnas se envuelvan en pantallas pequeñas */
+}
+
+.footer-section {
+    flex: 1; /* Distribuye el espacio uniformemente */
+    min-width: 250px; /* Ancho mínimo para que no se compriman demasiado */
+}
+
+.footer-section h3 {
+    color: #d81b60; /* Título en rosa más vibrante */
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    border-bottom: 2px solid #f06292; /* Línea decorativa */
+    padding-bottom: 5px;
+}
+
+.footer-section p {
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+/* --- Estilos de Redes Sociales --- */
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+}
+
+.facebook {
+    background-color: #3b5998; /* Color real de Facebook */
+}
+.instagram {
+    background-color: #c32aa3; /* Color real de Instagram (aproximado) */
+}
+.tiktok {
+    background-color: #000000; /* Color real de TikTok (negro) */
+}
+
+.social-icon:hover {
+    opacity: 0.8;
+}
+
+/* --- Estilos de Frase Motivacional --- */
+
+.motto {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra la frase verticalmente si la columna vecina es más alta */
+}
+
+.motivational-phrase {
+    font-style: italic;
+    font-size: 1.1em;
+    color: #880e4f; /* Tono de rosa/morado profundo */
+    border: 1px solid #ffcdd2;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #fff8fb; /* Fondo muy sutil para resaltar */
+}
+
+/* --- Estilos de Parte Inferior --- */
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 20px;
+    border-top: 1px solid #f8bbd0;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #880e4f;
+}
+
+/* --- Responsividad --- */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-section {
+        min-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .social-icons {
+        justify-content: center; /* Centra los iconos en móvil */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Sección de Formulario --- */
+
+.order-form-section {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: #fcfcfc;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.order-form-section h2 {
+    text-align: center;
+    color: #880e4f;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #f8bbd0;
+    padding-bottom: 10px;
+}
+
+.order-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* --- Fieldsets (Grupos de Campos) --- */
+.form-fieldset {
+    border: 1px solid #f8bbd0; /* Borde rosa claro */
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.form-fieldset legend {
+    color: #d81b60; /* Título de grupo en rosa vibrante */
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+/* --- Grupos de Campo y Etiquetas --- */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #4a148c; /* Morado/rosa oscuro */
+}
+
+/* --- Estilos de Inputs y Selects --- */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ffcdd2; /* Borde muy suave */
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #d81b60; /* Resaltar al enfocar en rosa vibrante */
+    outline: none;
+    box-shadow: 0 0 5px rgba(216, 27, 96, 0.5);
+}
+
+/* --- Diseño de Columnas Internas (Ej. CP y Ciudad) --- */
+.two-columns {
+    display: flex;
+    gap: 20px;
+}
+
+.input-half {
+    flex: 1; /* Distribuye el espacio a partes iguales */
+}
+
+/* --- Botón de Envío --- */
+.form-action {
+    text-align: center;
+}
+
+.submit-button {
+    background-color: #d81b60; /* Rosa de acción */
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.submit-button:hover {
+    background-color: #880e4f; /* Morado/rosa más oscuro al pasar el cursor */
+    transform: translateY(-2px); /* Pequeño efecto 3D */
+}
+
+/* --- Notas y Responsividad --- */
+.required-note {
+    text-align: center;
+    font-size: 0.9em;
+    color: #880e4f;
+    margin-top: -15px;
+}
+
+@media (max-width: 600px) {
+    .two-columns {
+        flex-direction: column; /* Apilar las columnas en móvil */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+html{
+    scroll-behavior: ;
+}
